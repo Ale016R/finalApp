@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Perfil
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-row>
+      <!-- Columna izquierda para la imagen -->
+      <ion-col size="3">
+        <img [src]="userImage" *ngIf="!photo" />
+        <img [src]="photo" *ngIf="photo" />
+      </ion-col>
+      
+      <!-- Columna derecha para los campos -->
+      <ion-col size="9">
+        <!-- Nombre -->
+        <ion-item>
+          <ion-label position="stacked">Nombre</ion-label>
+          <ion-input [(ngModel)]="nombre" type="text"></ion-input>
+        </ion-item>
+
+        <!-- Apellido -->
+        <ion-item>
+          <ion-label position="stacked">Apellido</ion-label>
+          <ion-input [(ngModel)]="apellido" type="text"></ion-input>
+        </ion-item>
+
+        <!-- Número de contacto -->
+        <ion-item>
+          <ion-label position="stacked">Número de Contacto</ion-label>
+          <ion-input [(ngModel)]="numeroContacto" type="tel"></ion-input>
+        </ion-item>
+
+        <!-- Correo -->
+        <ion-item>
+          <ion-label position="stacked">Correo</ion-label>
+          <ion-input [(ngModel)]="correo" type="email"></ion-input>
+        </ion-item>
+
+        <!-- Institución -->
+        <ion-item>
+          <ion-label position="stacked">Institución</ion-label>
+          <ion-input [(ngModel)]="institucion" type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-button (click)="guardarPerfil()">Guardar</ion-button>
+    </ion-row>
+    <ion-card-content>
+      <ion-button (click)="showActionSheet()">Tomar/Seleccionar Imagen</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
