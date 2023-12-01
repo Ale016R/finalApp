@@ -18,18 +18,16 @@ export class RegistroPage implements OnInit {
   constructor(private storage: Storage, private router: Router) {
   }
   async ngOnInit() {
-    // If using a custom driver:
-    // await this.storage.defineDriver(MyCustomDriver)
     await this.storage.create();
   }
   async registrarUsuario() {
     if (this.username && this.password) {
       try {
-        // Guardar el usuario y la contraseña en Ionic Storage
         await this.storage.set('username', this.username);
         await this.storage.set('password', this.password);
 
         console.log('Usuario registrado correctamente en Ionic Storage');
+        alert('Usuario creado con éxito! Ahora serás redirigido a la página para iniciar sesión');
         this.router.navigate(['/login']);
       } catch (error) {
         console.error('Error al registrar el usuario en Ionic Storage', error);

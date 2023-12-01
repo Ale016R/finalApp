@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
     <ion-title>
       Perfil
     </ion-title>
@@ -7,15 +10,13 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card class="custom-card">
     <ion-row>
-      <!-- Columna izquierda para la imagen -->
       <ion-col size="3">
         <img [src]="userImage" *ngIf="!photo" />
         <img [src]="photo" *ngIf="photo" />
       </ion-col>
       
-      <!-- Columna derecha para los campos -->
       <ion-col size="9">
         <!-- Nombre -->
         <ion-item>
@@ -47,10 +48,12 @@
           <ion-input [(ngModel)]="institucion" type="text"></ion-input>
         </ion-item>
       </ion-col>
-      <ion-button (click)="guardarPerfil()">Guardar</ion-button>
+      <ion-card-content>
+        <ion-button expand="full" color="primary"  (click)="showActionSheet()">Tomar/Seleccionar Imagen</ion-button>
+        <ion-button expand="full" color="secondary" (click)="guardarPerfil()">Guardar</ion-button>
+      </ion-card-content>
+     
     </ion-row>
-    <ion-card-content>
-      <ion-button (click)="showActionSheet()">Tomar/Seleccionar Imagen</ion-button>
-    </ion-card-content>
+    
   </ion-card>
 </ion-content>
